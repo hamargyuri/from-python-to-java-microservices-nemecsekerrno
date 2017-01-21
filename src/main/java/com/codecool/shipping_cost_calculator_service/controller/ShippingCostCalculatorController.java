@@ -20,10 +20,29 @@ public class ShippingCostCalculatorController {
         this.apiService = apiService;
     }
 
+    /**
+     * Returns OK if the service is running.
+     * @param request
+     * @param response
+     * @return
+     */
     public String status(Request request, Response response) {
         return "ok";
     }
 
+    /**
+     * This method is for generating shipping options.
+     * <p>
+     *     It sends the original request parameters to Google Maps Distance Matrix,
+     *     creates ShippingOption objects from the response,
+     *     and returns a JSON from all those objects.
+     * </p>
+     * @param request
+     * @param response
+     * @return JSON file containing all option objects.
+     * @throws IOException
+     * @throws URISyntaxException
+     */
     public JSONObject generateOptions(Request request, Response response) throws IOException, URISyntaxException {
         String originAddress = request.queryParams("origin");
         String destinationAddress = request.queryParams("destination");

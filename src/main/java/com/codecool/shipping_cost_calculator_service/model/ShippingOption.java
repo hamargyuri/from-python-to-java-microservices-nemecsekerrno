@@ -27,6 +27,20 @@ public class ShippingOption {
 //    -------------------------------
 
 
+    /**
+     * ShippingOption constructor.
+     * <p>
+     *     It generates all (4) options
+     *     based on the identifiers
+     *     and the data it receives
+     *     from Google Maps Distance Matrix.
+     * </p>
+     * @param type Shipping method identifier.
+     * @param originFound The exact origin address found by GMDM.
+     * @param destinationFound The exact destination address found by GMDM.
+     * @param distanceInKm
+     * @param timeInHours
+     */
     public ShippingOption(String type, String originFound, String destinationFound, float distanceInKm, float timeInHours) {
         this.originFound = originFound;
         this.destinationFound = destinationFound;
